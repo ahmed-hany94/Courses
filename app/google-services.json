@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "41224024584",
+    "firebase_url": "https://courses-f3ed5.firebaseio.com",
+    "project_id": "courses-f3ed5",
+    "storage_bucket": "courses-f3ed5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41224024584:android:9ba2b25a0f1e3583",
+        "android_client_info": {
+          "package_name": "com.arkdev.courses"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41224024584-5f8qjkcgcik1jdkh6lgql4g5cng9o9it.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arkdev.courses",
+            "certificate_hash": "56497eb37c4c386ba0ce4cc1c7017f75357e74e6"
+          }
+        },
+        {
+          "client_id": "41224024584-e3r1p7mkv35pc1e672fbf3mglnufh6t4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKDcpE6onI0Jqi7Je7MqgNalOYOzpcdis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41224024584-e3r1p7mkv35pc1e672fbf3mglnufh6t4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
