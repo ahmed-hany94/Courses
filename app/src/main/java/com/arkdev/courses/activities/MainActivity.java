@@ -1,4 +1,4 @@
-package com.arkdev.courses;
+package com.arkdev.courses.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.arkdev.courses.R;
+import com.arkdev.courses.activities.CoursesListActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 

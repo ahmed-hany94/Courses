@@ -1,4 +1,4 @@
-package com.arkdev.courses;
+package com.arkdev.courses.itemViews;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.arkdev.courses.R;
+import com.arkdev.courses.models.Child;
 import com.bumptech.glide.Glide;
 
 public class CourseItemView extends RecyclerView.ViewHolder{

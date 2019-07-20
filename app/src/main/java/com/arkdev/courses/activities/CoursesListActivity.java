@@ -1,13 +1,21 @@
-package com.arkdev.courses;
+package com.arkdev.courses.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
-import java.io.IOException;
+import com.arkdev.courses.R;
+import com.arkdev.courses.adapters.CourseAdapter;
+import com.arkdev.courses.constants.JsonConstants;
+import com.arkdev.courses.handlers.DatabaseHandler;
+import com.arkdev.courses.interfaces.ApiInterface;
+import com.arkdev.courses.models.ApiModel;
+import com.arkdev.courses.models.Child;
+import com.arkdev.courses.models.CourseAttendees;
+import com.arkdev.courses.models.User;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,14 +27,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CoursesListActivity extends AppCompatActivity {
 
+    // Models
+    User user;
+    CourseAttendees courseAttendees;
+    List<Child> coursesList;
+    // Adapters
+    CourseAdapter courseAdapter;
+    // Handlers
+    DatabaseHandler databaseHandler;
+    // Interfaces
+    ApiInterface apiInterface;
+    // Libraries
     RecyclerView recyclerView;
     LinearLayoutManager mLayoutManager;
     Retrofit retrofit;
-
-    ApiInterface apiInterface;
-
-    List<Child> coursesList;
-    CourseAdapter courseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +62,8 @@ public class CoursesListActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         apiInterface = retrofit.create(ApiInterface.class);
+        databaseHandler = DatabaseHandler.getInstance();
+        user = new User();
 
         coursesList = new ArrayList<>();
     }
@@ -64,13 +80,18 @@ public class CoursesListActivity extends AppCompatActivity {
                     if(response.body().getChildren().size() != 0 &&
                         response.body().getChildren() != null){
                         for(int i = 0; i < response.body().getChildren().size(); i++){
-                            // Note: Not all the info
-                            coursesList.add(new Child(
-                                    response.body().getChildren().get(i).getDescription(),
-                                    response.body().getChildren().get(i).getIcon(),
+                            Child child = new Child(
+                                    response.body().getChildren().get(i).getCourseID(),
                                     response.body().getChildren().get(i).getTitle(),
-                                    response.body().getChildren().get(i).getUrl()
-                            ));
+                                    response.body().getChildren().get(i).getIcon(),
+                                    response.body().getChildren().get(i).getIconLarge(),
+                                    response.body().getChildren().get(i).getUrl(),
+                                    response.body().getChildren().get(i).getDescription()
+                                    );
+                            coursesList.add(child);
+
+                            databaseHandler.addData(child, "courses");
+
                         }
                         courseAdapter = new CourseAdapter();
                         courseAdapter.setCoursesLists(coursesList);

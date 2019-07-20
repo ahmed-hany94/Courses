@@ -1,10 +1,14 @@
-package com.arkdev.courses;
+package com.arkdev.courses.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.arkdev.courses.itemViews.CourseItemView;
+import com.arkdev.courses.R;
+import com.arkdev.courses.models.Child;
 
 import java.util.List;
 

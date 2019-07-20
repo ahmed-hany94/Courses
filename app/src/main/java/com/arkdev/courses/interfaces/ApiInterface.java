@@ -1,8 +1,10 @@
-package com.arkdev.courses;
+package com.arkdev.courses.interfaces;
+
+import com.arkdev.courses.models.ApiModel;
+import com.arkdev.courses.constants.JsonConstants;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 public interface ApiInterface {
     @GET(JsonConstants.COMPUTING_URL)

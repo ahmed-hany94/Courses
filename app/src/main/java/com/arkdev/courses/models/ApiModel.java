@@ -1,5 +1,6 @@
-package com.arkdev.courses;
+package com.arkdev.courses.models;
 
+import com.arkdev.courses.models.Child;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
